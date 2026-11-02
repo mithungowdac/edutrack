@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "edutrack", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "5173", "--directory", "www"], "port": 5173 }
+  ]
+}

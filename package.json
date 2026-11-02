@@ -1,0 +1,20 @@
+{
+  "name": "edutrack-student-performance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Student Academic Performance Analysis System - mobile app",
+  "scripts": {
+    "vendor": "node scripts/copy-vendor.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/cli": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3",
+    "chart.js": "^4.6.1",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.9",
+    "sql.js": "^1.15.2"
+  }
+}

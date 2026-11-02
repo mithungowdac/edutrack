@@ -1,0 +1,29 @@
+# Builds the installable Android app in the cloud on every push.
+# Download it from the repository's Actions tab -> latest run -> Artifacts -> EduTrack-APK.
+name: Build Android APK
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: android-actions/setup-android@v3
+      - run: npm ci
+      - run: npm run vendor
+      - run: npx cap add android
+      - run: npx cap sync android
+      - run: chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+        working-directory: android
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EduTrack-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
